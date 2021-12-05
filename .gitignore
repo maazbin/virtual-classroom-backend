@@ -56,7 +56,7 @@ coverage.xml
 celerybeat-schedule.* 
 
 # Environments 
-.env 
+.fyp_venv 
 .venv 
 env/ 
 venv/ 
