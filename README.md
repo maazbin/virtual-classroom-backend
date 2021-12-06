@@ -10,7 +10,7 @@ sudo apt install python3.8
 source : https://docs.python.org/3/tutorial/venv.html
 
 # Start Virtual Environment
-source <path to venv>/bin/activate
+source [path to venv]/bin/activate
 
 NOTE : to deactivate use deactivate [path to venv]/bin/activate
 
