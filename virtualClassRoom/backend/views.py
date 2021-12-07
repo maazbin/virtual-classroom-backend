@@ -48,3 +48,14 @@ def userList(request):
 	user = User.objects.all()
 	serializer = UserSerializer(user, many=True)
 	return Response(serializer.data)
+
+
+# Adding Authenticated Users by the firebase to the database
+
+@api_view(['PUT'])
+def addUser(request):
+    serializer = UserSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
