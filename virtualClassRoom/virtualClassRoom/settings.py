@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import psycopg2.extensions
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-1gc3^8za5s(16l60orw_)qs+637os!8fvp0zzprlt&qg^j54mh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['b7c1-2400-adc1-159-4900-2c46-730a-c817-9249.ngrok.io','localhost']
 
 
 # Application definition
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'backend',
     'rest_framework',
+    # 'clear_cache'
 ]
 
 MIDDLEWARE = [
@@ -77,9 +79,18 @@ WSGI_APPLICATION = 'virtualClassRoom.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fyp',
+        'USER': 'maaz',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '',
+        'OPTIONS': {
+            'isolation_level': psycopg2.extensions.ISOLATION_LEVEL_SERIALIZABLE,
+            },
+
     }
+    
 }
 
 
