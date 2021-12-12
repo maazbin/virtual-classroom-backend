@@ -52,7 +52,7 @@ def userList(request):
 
 # Adding Authenticated Users by the firebase to the database
 
-@api_view(['PUT'])
+@api_view(['POST'])
 def addUser(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
