@@ -70,16 +70,18 @@ def roomList(request):
     return Response(serializer.data)
 
 
-#loading the room list
+#List of discussions -> week in UI
 @api_view(['GET'])
 def discList(request,pk):
-    # return JsonResponse("Task List",safe=False)
     discussion = Discussion
     room = Room.objects.get(pk=pk)
-    for disc in Discussion.objects.filter(discussion_Room=room):
-        print(disc.discussion_name)
+    # for disc in Discussion.objects.filter(discussion_Room=room):
+    #     print(disc.discussion_name)
     discussion = Discussion.objects.filter(discussion_Room=room)
-    # disscussion = discussion.objects.all()
-    # print(discussion)
+    if discussion.count() == 0:
+        return Response("No Discussions")
+   
     serializer = DiscussionSerializer(discussion, many=True)
+
     return Response(serializer.data)
+   
