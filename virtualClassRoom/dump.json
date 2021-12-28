@@ -1,0 +1,774 @@
+[
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": [
+            "admin",
+            "logentry"
+        ],
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view permission",
+        "content_type": [
+            "auth",
+            "permission"
+        ],
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view group",
+        "content_type": [
+            "auth",
+            "group"
+        ],
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view user",
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view content type",
+        "content_type": [
+            "contenttypes",
+            "contenttype"
+        ],
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view session",
+        "content_type": [
+            "sessions",
+            "session"
+        ],
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add user",
+        "content_type": [
+            "backend",
+            "user"
+        ],
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change user",
+        "content_type": [
+            "backend",
+            "user"
+        ],
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete user",
+        "content_type": [
+            "backend",
+            "user"
+        ],
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view user",
+        "content_type": [
+            "backend",
+            "user"
+        ],
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add room",
+        "content_type": [
+            "backend",
+            "room"
+        ],
+        "codename": "add_room"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change room",
+        "content_type": [
+            "backend",
+            "room"
+        ],
+        "codename": "change_room"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete room",
+        "content_type": [
+            "backend",
+            "room"
+        ],
+        "codename": "delete_room"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view room",
+        "content_type": [
+            "backend",
+            "room"
+        ],
+        "codename": "view_room"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add discussions",
+        "content_type": [
+            "backend",
+            "discussions"
+        ],
+        "codename": "add_discussions"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change discussions",
+        "content_type": [
+            "backend",
+            "discussions"
+        ],
+        "codename": "change_discussions"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete discussions",
+        "content_type": [
+            "backend",
+            "discussions"
+        ],
+        "codename": "delete_discussions"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view discussions",
+        "content_type": [
+            "backend",
+            "discussions"
+        ],
+        "codename": "view_discussions"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add topics",
+        "content_type": [
+            "backend",
+            "topics"
+        ],
+        "codename": "add_topics"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change topics",
+        "content_type": [
+            "backend",
+            "topics"
+        ],
+        "codename": "change_topics"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete topics",
+        "content_type": [
+            "backend",
+            "topics"
+        ],
+        "codename": "delete_topics"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view topics",
+        "content_type": [
+            "backend",
+            "topics"
+        ],
+        "codename": "view_topics"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add rooms",
+        "content_type": [
+            "backend",
+            "rooms"
+        ],
+        "codename": "add_rooms"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change rooms",
+        "content_type": [
+            "backend",
+            "rooms"
+        ],
+        "codename": "change_rooms"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete rooms",
+        "content_type": [
+            "backend",
+            "rooms"
+        ],
+        "codename": "delete_rooms"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view rooms",
+        "content_type": [
+            "backend",
+            "rooms"
+        ],
+        "codename": "view_rooms"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add responses",
+        "content_type": [
+            "backend",
+            "responses"
+        ],
+        "codename": "add_responses"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change responses",
+        "content_type": [
+            "backend",
+            "responses"
+        ],
+        "codename": "change_responses"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete responses",
+        "content_type": [
+            "backend",
+            "responses"
+        ],
+        "codename": "delete_responses"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view responses",
+        "content_type": [
+            "backend",
+            "responses"
+        ],
+        "codename": "view_responses"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add comments",
+        "content_type": [
+            "backend",
+            "comments"
+        ],
+        "codename": "add_comments"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change comments",
+        "content_type": [
+            "backend",
+            "comments"
+        ],
+        "codename": "change_comments"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete comments",
+        "content_type": [
+            "backend",
+            "comments"
+        ],
+        "codename": "delete_comments"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view comments",
+        "content_type": [
+            "backend",
+            "comments"
+        ],
+        "codename": "view_comments"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add discussion",
+        "content_type": [
+            "backend",
+            "discussion"
+        ],
+        "codename": "add_discussion"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change discussion",
+        "content_type": [
+            "backend",
+            "discussion"
+        ],
+        "codename": "change_discussion"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete discussion",
+        "content_type": [
+            "backend",
+            "discussion"
+        ],
+        "codename": "delete_discussion"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view discussion",
+        "content_type": [
+            "backend",
+            "discussion"
+        ],
+        "codename": "view_discussion"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add topic",
+        "content_type": [
+            "backend",
+            "topic"
+        ],
+        "codename": "add_topic"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change topic",
+        "content_type": [
+            "backend",
+            "topic"
+        ],
+        "codename": "change_topic"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete topic",
+        "content_type": [
+            "backend",
+            "topic"
+        ],
+        "codename": "delete_topic"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view topic",
+        "content_type": [
+            "backend",
+            "topic"
+        ],
+        "codename": "view_topic"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add response",
+        "content_type": [
+            "backend",
+            "response"
+        ],
+        "codename": "add_response"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change response",
+        "content_type": [
+            "backend",
+            "response"
+        ],
+        "codename": "change_response"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete response",
+        "content_type": [
+            "backend",
+            "response"
+        ],
+        "codename": "delete_response"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view response",
+        "content_type": [
+            "backend",
+            "response"
+        ],
+        "codename": "view_response"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can add comment",
+        "content_type": [
+            "backend",
+            "comment"
+        ],
+        "codename": "add_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can change comment",
+        "content_type": [
+            "backend",
+            "comment"
+        ],
+        "codename": "change_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can delete comment",
+        "content_type": [
+            "backend",
+            "comment"
+        ],
+        "codename": "delete_comment"
+    }
+},
+{
+    "model": "auth.permission",
+    "fields": {
+        "name": "Can view comment",
+        "content_type": [
+            "backend",
+            "comment"
+        ],
+        "codename": "view_comment"
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$260000$GbXoICkjPIT0TAK2fGOuBX$SQqQm5ALbjfuVuj9pu0omh5pRtWxsAlgG/bDAUK2lCE=",
+        "last_login": "2021-12-26T20:43:02.180Z",
+        "is_superuser": true,
+        "username": "maaz",
+        "first_name": "",
+        "last_name": "",
+        "email": "maaz.mstqm@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-12-26T20:42:35.108Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "hvaych39atk3gjomg1vq0hf8o4bnfcib",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-ZW1T0nMGy7ve4ABypDipEHeHSCmgfTPzXiLlba1p67ykqYizsOL0u2GmB7cdlHtut1nS3NZlQrkr8qBdXufCz8vh_h3U3Ou3ZiJtjdOBPeeAIyuwTB7BDVE5hEF7ZufRZTQmkgU7gnY-IqDCEJR4fwDsXTem:1n1aMA:LtoTlzrYpEUGXwLk6f0tZUwm5udbQpdHw_hS-aZm2oU",
+        "expire_date": "2022-01-09T20:43:02.202Z"
+    }
+}
