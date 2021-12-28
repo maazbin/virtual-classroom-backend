@@ -1,7 +1,19 @@
 from rest_framework import serializers
-from .models import User
+from .models import User,Room,Discussion,Topic,Response,Comment
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
+        fields = '__all__'
+
+
+class RoomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Room
+        fields = '__all__'
+
+
+class DiscussionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Discussion
         fields = '__all__'
