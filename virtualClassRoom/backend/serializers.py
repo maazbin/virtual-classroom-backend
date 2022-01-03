@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User,Room,Discussion,Topic,Response,Comment
+from .models import User,Room,Discussion,Topic,Response,Comment,Enrolment
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,3 +17,8 @@ class DiscussionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Discussion
         fields = '__all__'
+
+class EnrolmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Enrolment
+        fields = ["student","room"]
