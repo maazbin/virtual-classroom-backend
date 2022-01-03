@@ -12,4 +12,5 @@ urlpatterns = [
     path('room-list', views.roomList, name='room-list'),
     path('add-room', views.addRoom, name='add-room'),
     path('disc-list/<int:pk>', views.discList, name='disc-list'),
+    path('user-room-list/<str:pk>', views.userRoomlList, name='user-room-list'),
 ]

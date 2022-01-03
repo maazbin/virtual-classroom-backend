@@ -5,11 +5,11 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 		# Model Imports 
-from .models import User,Room,Discussion
+from .models import User,Room,Discussion,Enrolment
 
         # serializers Imports
 from backend import serializers
-from .serializers import UserSerializer,RoomSerializer,DiscussionSerializer
+from .serializers import UserSerializer,RoomSerializer,DiscussionSerializer,EnrolmentSerializer
 
 
 
@@ -25,7 +25,8 @@ def apiList(request):
 		'User list':'api/user-list/',
         'Room list':'api/room-list/',
         'Add a new room':'api/add-room',
-        'Get Discussion list':'api/disc-list/<str:pk>',
+        'Get Discussion list':'api/disc-list/<int:pk>',
+        'Get Users in the req room' : 'api/enrol-list/<str:pk>',
 		# 'Update':'/task-update/<str:pk>/',
 		# 'Delete':'/task-delete/<str:pk>/',
 		}
@@ -85,3 +86,30 @@ def discList(request,pk):
 
     return Response(serializer.data)
    
+
+# Enrolled users
+@api_view(['GET'])
+def userRoomlList(request,pk):
+    enrol = Enrolment
+    # room = Room.objects.get(id=pk)
+    #getting data of room for a spesific user 
+    enrol = Enrolment.objects.filter(room = pk)
+    # info = Room.objects.get(id=int(pk))
+    # print(info)
+    if enrol.count() == 0:
+        return Response([])
+   
+    serializer = EnrolmentSerializer(enrol, many=True)
+
+    return Response(serializer.data)
+
+
+    """
+        For more work on the query regarding studetns enrolled in a room
+
+        CODE;
+
+     for x in user.objects.all():
+         enrol = Enrolment(room =Room.objects.get(id = 27) , student = user.objects.get(id = x.id))
+         enrol.save()        
+    """
