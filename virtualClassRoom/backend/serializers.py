@@ -21,4 +21,4 @@ class DiscussionSerializer(serializers.ModelSerializer):
 class EnrolmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Enrolment
-        fields = ["student","room"]
+        fields = '__all__'

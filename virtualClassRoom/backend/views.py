@@ -26,9 +26,8 @@ def apiList(request):
         'Room list':'api/room-list/',
         'Add a new room':'api/add-room',
         'Get Discussion list':'api/disc-list/<int:pk>',
-        'Get Users in the req room' : 'api/enrol-list/<str:pk>',
-		# 'Update':'/task-update/<str:pk>/',
-		# 'Delete':'/task-delete/<str:pk>/',
+        'Get Users in the req room' : 'api/user-room-list/<str:pk>',
+        'Enrolling a user in a group' : 'api/enrolment'
 		}
 
 
@@ -104,6 +103,13 @@ def userRoomlList(request,pk):
     return Response(serializer.data)
 
 
+@api_view(['POST'])
+def enrolment(request):
+    serializer = EnrolmentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     """
         For more work on the query regarding studetns enrolled in a room
 
