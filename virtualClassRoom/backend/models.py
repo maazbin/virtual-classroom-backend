@@ -34,6 +34,8 @@ class Room(models.Model):
 
 
 class Enrolment(models.Model):
+    class Meta:
+        unique_together = ['student', 'room']
     student = models.ForeignKey(User, on_delete=DO_NOTHING)
     room = models.ForeignKey(Room, on_delete=DO_NOTHING)
 
