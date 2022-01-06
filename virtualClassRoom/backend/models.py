@@ -14,7 +14,7 @@ import uuid
 
 # User as students or learner
 class User(models.Model):
-    id = models.CharField(primary_key=True, default=uuid.uuid4, editable=False, max_length=40)
+    id = models.CharField(primary_key=True,unique=True,null=False, max_length=40)
     name = models.CharField(max_length=255, null = True)
     email = models.CharField(max_length=255,null = True)
     
@@ -40,23 +40,23 @@ class Enrolment(models.Model):
     room = models.ForeignKey(Room, on_delete=DO_NOTHING)
 
 
-# Discussion is the place where different Topic are discussed. UI -> Week
+# Discussion is the place where different Topic are discussed. UI -> Weeks
 class Discussion(models.Model):
     discussion_name = models.CharField(max_length=255)
     discussion_description = models.TextField(max_length=255,null = True)
-    discussion_Room = models.ForeignKey(Room, on_delete=DO_NOTHING, default=None, null = False)
+    room = models.ForeignKey(Room, on_delete=DO_NOTHING, default=None, null = False)
     
     def __str__(self):
         return self.discussion_name
 
 # Topic are entities under Discussion where user can post the issue and get the solution.
 class Topic(models.Model):
-    topic_name = models.CharField(max_length=255)
-    topic_description = models.TextField(max_length=255)
-    # topic_discussion = models.ForeignKey(Discussion, on_delete=CASCADE, default=None, null=True)
+    title = models.CharField(max_length=255)
+    description = models.TextField(max_length=255)
+    discussion = models.ForeignKey(Discussion, on_delete=CASCADE, default=None, null=True)
     
-    def __str__(self):
-        return self.topic_name
+    # def __str__(self):
+    #     return self.title
 
 # User can answer the question posted in Topic
 class Response(models.Model):
