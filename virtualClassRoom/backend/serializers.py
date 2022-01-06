@@ -18,7 +18,12 @@ class DiscussionSerializer(serializers.ModelSerializer):
         model = Discussion
         fields = '__all__'
 
+class TopicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Topic
+        fields = '__all__'
+
 class EnrolmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Enrolment
-        fields = '__all__'
+        fields = ['student','room']
