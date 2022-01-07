@@ -52,8 +52,8 @@ class Discussion(models.Model):
 # Topic are entities under Discussion where user can post the issue and get the solution.
 class Topic(models.Model):
     title = models.CharField(max_length=255)
-    description = models.TextField(max_length=255)
-    discussion = models.ForeignKey(Discussion, on_delete=CASCADE, default=None, null=True)
+    description = models.TextField(max_length=500)
+    discussion = models.ForeignKey(Discussion, on_delete=CASCADE, default=None, null=False)
     
     # def __str__(self):
     #     return self.title
