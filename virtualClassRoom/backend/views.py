@@ -30,6 +30,7 @@ def apiList(request):
         'Add a new user':'api/add-user',
         'Add a new room':'api/add-room',
         'Enrolling a user in a group' : 'api/enrolment',
+        'Create a new topic':'api/create-topic',
 		}
 
 
@@ -123,6 +124,18 @@ def enrolment(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+# Create a new Topic instance
+@api_view(['POST'])
+def createTopic(request):
+    serializer = TopicSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
     """
         For more work on the query regarding studetns enrolled in a room
 
@@ -158,4 +171,4 @@ def enrol(request):
     enrol = Enrolment.objects.all()
     serializer = EnrolmentSerializer(enrol,many = True)
     return Response(serializer.data) 
-    
+
