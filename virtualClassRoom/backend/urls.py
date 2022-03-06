@@ -17,5 +17,7 @@ urlpatterns = [
     path('enrolment', views.enrolment,name='enrolment'),
     path('rooms-of-user/<str:pk>', views.RoomsOfUser, name='rooms-of-user'),
     path('enrol', views.enrol, name='enrol'),
-    path('create-topic', views.enrol, name='enrol'), #create a new topic
+    path('create-topic', views.createTopic, name='createTopic'), #create a new topic
+    #creates a new response for the topic
+    path('create-response',views.createResponse,name = 'create-response'), 
 ]

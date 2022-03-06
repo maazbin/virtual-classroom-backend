@@ -27,3 +27,8 @@ class EnrolmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Enrolment
         fields = ['student','room']
+
+class ResponseSerializer(serializers.ModelSerializer):
+    class Meta1:
+        model = Response
+        fields = ['response_description','response_topic','response_user']

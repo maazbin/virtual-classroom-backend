@@ -62,8 +62,8 @@ class Topic(models.Model):
 class Response(models.Model):
     # response_name = models.CharField(max_length=255)
     response_description = models.TextField(max_length=300)
-    # response_topic = models.ForeignKey(Topic, on_delete=CASCADE, default=None, null=True)
-    # response_user = models.ForeignKey(User, on_delete=CASCADE, default=None, null=True)
+    response_topic = models.ForeignKey(Topic, on_delete=CASCADE, default=None, null=True)
+    response_user = models.ForeignKey(User, on_delete=CASCADE, default=None, null=True)
     
     # def __str__(self):
     #     return self.response_description

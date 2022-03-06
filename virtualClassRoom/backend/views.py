@@ -10,7 +10,7 @@ from .models import Topic, User,Room,Discussion,Enrolment
 
         # serializers Imports
 from backend import serializers
-from .serializers import UserSerializer,RoomSerializer,DiscussionSerializer,EnrolmentSerializer,TopicSerializer
+from .serializers import UserSerializer,RoomSerializer,DiscussionSerializer,EnrolmentSerializer,TopicSerializer,ResponseSerializer
 
 
 
@@ -32,6 +32,7 @@ def apiList(request):
         'Add a new room':'api/add-room',
         'Enrolling a user in a group' : 'api/enrolment', # post user and room id
         'Create a new topic':'api/create-topic', #accepts title , description, discussion id
+        'Creates a new response for a topic' : 'api/create-response' #accepts desc,user id , topic id
 		}
 
 
@@ -140,7 +141,7 @@ def enrolment(request):
 
 
 
-# Create a new Topic instance
+# Create a new Topic in 
 @api_view(['POST'])
 def createTopic(request):
     serializer = TopicSerializer(data=request.data)
@@ -178,6 +179,8 @@ def RoomsOfUser(request,pk):
     return JsonResponse(roomList)
 
 
+
+# Get pairs of all users and rooms (enrolled)
 @api_view(['GET'])
 def enrol(request):
     enrol = Enrolment
@@ -185,3 +188,12 @@ def enrol(request):
     serializer = EnrolmentSerializer(enrol,many = True)
     return Response(serializer.data) 
 
+
+# Create a new response for the topic
+@api_view(['POST'])
+def createResponse(request):
+    serializer = ResponseSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
