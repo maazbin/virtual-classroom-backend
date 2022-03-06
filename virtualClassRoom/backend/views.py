@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.shortcuts import render
 from django.http import JsonResponse, response
 from rest_framework import status
@@ -21,16 +22,16 @@ def apiList(request):
     
     api_urls = {
 		'Get API List':'api/user-list/',
-		'Get Discussion list of a room':'api/disc-list/<int:pk>',
+		'Get Discussion list of a room':'api/disc-list/<int:pk>',# pk = room id
         'Get Topics list of a Discussion':'api/topic-list/<int:pk>',
-        'Get Users in the req room' : 'api/user-room-list/<str:pk>',
-        'Get room(s) for an enrolled specific user': 'api/rooms-of-user/<str:pk>',
+        'Get Users in the req room' : 'api/user-room-list/<str:pk>', #pass room id
+        'Get room(s) for an enrolled specific user': 'api/rooms-of-user/<str:pk>', # pass user id
 		'Get User list':'api/user-list/',
         'Get Room list':'api/room-list/',
         'Add a new user':'api/add-user',
         'Add a new room':'api/add-room',
-        'Enrolling a user in a group' : 'api/enrolment',
-        'Create a new topic':'api/create-topic',
+        'Enrolling a user in a group' : 'api/enrolment', # post user and room id
+        'Create a new topic':'api/create-topic', #accepts title , description, discussion id
 		}
 
 
@@ -45,7 +46,7 @@ def userList(request):
 	return Response(serializer.data)
 
 
-
+# add new user 
 
 @api_view(['POST'])
 def addUser(request):
@@ -56,11 +57,23 @@ def addUser(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+# add new room
+
 @api_view(['POST'])
 def addRoom(request):
     serializer = RoomSerializer(data=request.data)
+    disc = Discussion
+    #to get max from room id
+    from django.db.models import Max
     if serializer.is_valid():
         serializer.save()
+        # adding 3 weeks in the new room
+        r = Room.objects.all().aggregate(Max('id'))
+        r = Room.objects.get(id=r['id__max'])
+        for x in range(3):
+            disc = Discussion(discussion_name = f'Week {x}', discussion_description = f'this is week {x}', room = r) 
+            disc.save()
+        # print()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

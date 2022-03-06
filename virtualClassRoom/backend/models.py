@@ -8,7 +8,7 @@ import uuid
     a specific user (Teacher) with a specific Room.
  """
 
-# import uuid
+import uuid
 # Create your models here.
 
 
