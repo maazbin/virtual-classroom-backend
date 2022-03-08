@@ -20,4 +20,7 @@ urlpatterns = [
     path('create-topic', views.createTopic, name='createTopic'), #create a new topic
     #creates a new response for the topic
     path('create-response',views.createResponse,name = 'create-response'), 
+    path('response-list/<str:pk>', views.responseList, name='response-list'),
+    path('create-comment',views.createComment,name = 'comment-response'), 
+    path('comment-list/<str:pk>', views.commentList, name='comment-list'),
 ]

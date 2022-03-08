@@ -1,4 +1,5 @@
 from unicodedata import name
+from xml.etree.ElementTree import Comment
 from django.shortcuts import render
 from django.http import JsonResponse, response
 from rest_framework import status
@@ -7,10 +8,11 @@ from rest_framework.response import Response
 
 		# Model Imports 
 from .models import Topic, User,Room,Discussion,Enrolment
+from .models import Responses
 
         # serializers Imports
 from backend import serializers
-from .serializers import UserSerializer,RoomSerializer,DiscussionSerializer,EnrolmentSerializer,TopicSerializer,ResponseSerializer
+from .serializers import UserSerializer,RoomSerializer,DiscussionSerializer,EnrolmentSerializer,TopicSerializer,ResponsesSerializer,CommentSerializer
 
 
 
@@ -22,6 +24,8 @@ def apiList(request):
     
     api_urls = {
 		'Get API List':'api/user-list/',
+        'Get Comments of a Response with users (pass response id)':'api/comment-list/<int:pk>', #pass response id
+        'Get Responses of a topic with users (pass topic id)':'api/response-list/<int:pk>', #pass topic id
 		'Get Discussion list of a room':'api/disc-list/<int:pk>',# pk = room id
         'Get Topics list of a Discussion':'api/topic-list/<int:pk>',
         'Get Users in the req room' : 'api/user-room-list/<str:pk>', #pass room id
@@ -32,7 +36,8 @@ def apiList(request):
         'Add a new room':'api/add-room',
         'Enrolling a user in a group' : 'api/enrolment', # post user and room id
         'Create a new topic':'api/create-topic', #accepts title , description, discussion id
-        'Creates a new response for a topic' : 'api/create-response' #accepts desc,user id , topic id
+        'Creates a new response for a topic(accepts response_description,response_user , response_topic)' : 'api/create-response', #accepts response text,user id , topic id
+        'Creates a new response for a topic(accepts comment_description,comment_response ,comment_user)' : 'api/create-comment', #accepts comment text,user id , response id
 		}
 
 
@@ -192,8 +197,44 @@ def enrol(request):
 # Create a new response for the topic
 @api_view(['POST'])
 def createResponse(request):
-    serializer = ResponseSerializer(data=request.data)
+    serializer = ResponsesSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
+# Get responses of a topic by the users 
+@api_view(['GET'])
+def responseList(request,pk): #pk is the topic id
+    
+    topic = Topic.objects.get(pk=pk)
+    resp = Responses.objects.filter(response_topic=topic)
+    if resp.count == 0 :
+        return([])        
+    serializer = ResponsesSerializer(resp, many=True)
+    return Response(serializer.data)
+    
+
+#Creates a new comment for a response
+@api_view(['POST'])
+def createComment(request):
+    serializer = CommentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# Get comments of a response by the user 
+@api_view(['GET'])
+def commentList(request,pk): #pk is the topic id
+    
+    resp = Responses.objects.get(pk=pk)
+    comment = Comment.objects.filter(comment_response=resp)
+    if comment.count == 0 :
+        return([])        
+    serializer = ResponsesSerializer(resp, many=True)
+    return Response(serializer.data)
