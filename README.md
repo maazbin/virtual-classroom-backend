@@ -14,5 +14,8 @@ source [path to venv]/bin/activate
 
 NOTE : to deactivate use deactivate [path to venv]/bin/activate
 
+# Install requirement.txt
+<p> pip install -r requirements.txt </p>
+
 # Install Django
-python -m pip install Django
+python -m pip install Django (use requirement.txt instead)
